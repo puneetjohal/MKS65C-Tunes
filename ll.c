@@ -33,8 +33,32 @@ struct song_node * free_list(struct song_node * front)
 
 struct song_node * insert_order(struct song_node * front, char * new_name, char * artist)
 {
-  struct song_node* insertPoint = front;
-  struct song_node* pointBefore = NULL;
+  struct song_node* curr = insert_front(front, new_name, artist);
+  struct song_node* prev = NULL;
+  struct song_node* next = front;
+  struct song_node* front = curr;
+  int firstRun = 1; //keeps track of which run this is for front assignment
+
+  while (next != NULL && strcmp(artist, curr->next->artist) > 0){
+    if (firstRun){
+      prev = next;
+      curr->next = prev->next;
+      prev->next = curr;
+      front = prev; //in the case the newly added node is not the new front
+      firstRun = 0; //not first run anymore
+    }
+    else {
+      prev->next = next;
+      curr->next = next->next;
+      next->next = curr;
+    }
+  }
+
+    return front;
+  }
+  
+  
+  /*
   while (insertPoint != NULL){
     if (strcmp(artist, insertPoint->artist) <= 0){
       if (strcmp(new_name, insertPoint->name) <= 0){
@@ -53,6 +77,7 @@ struct song_node * insert_order(struct song_node * front, char * new_name, char 
     pointBefore->next = insertPoint;
   }
   return front;
+  */
 }
 
 struct song_node * find(char * title, char * artist)
