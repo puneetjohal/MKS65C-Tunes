@@ -8,7 +8,7 @@ void print_list(struct song_node * link)
 {
   while (link) //while the pointer points somewhere
   {
-    printf("%s by %s", link->name, link->artist); //print it + arrow
+    printf("%s by %s\n", link->name, link->artist); //print it + arrow
     link = link->next; //go to the next val
   }
 }
@@ -31,12 +31,12 @@ struct song_node * free_list(struct song_node * front)
 
 //what we need to write
 
-struct song_node * insert_order(struct song_node * front, char * new_name, char * artist)
+struct song_node * insert_order(struct song_node * head, char * new_name, char * artist)
 {
-  struct song_node* curr = insert_front(front, new_name, artist);
+  struct song_node* curr = insert_front(head, new_name, artist);
   struct song_node* prev = NULL;
-  struct song_node* next = front;
   struct song_node* front = curr;
+  struct song_node* next = head;
   int firstRun = 1; //keeps track of which run this is for front assignment
 
   while (next != NULL && strcmp(artist, curr->next->artist) > 0){
@@ -78,7 +78,7 @@ struct song_node * insert_order(struct song_node * front, char * new_name, char 
   }
   return front;
   */
-}
+
 
 struct song_node * find(char * title, char * artist)
 {
@@ -103,6 +103,7 @@ struct song_node * remove_song(char * title, char * artist)
 int main(){
   struct song_node *head = (struct song_node*)malloc(sizeof(struct song_node)); //allocates memory
   struct song_node song = {"Bohemian Rhapsody", "Queen", NULL};
+  head = &song;
   print_list(head);
   return 0;
 }

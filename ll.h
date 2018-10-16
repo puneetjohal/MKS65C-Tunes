@@ -9,7 +9,7 @@ struct song_node{
 };
 
 void print_list(struct song_node * link);
-struct song_node * insert_front(struct song_node * link, char * new_name);
+struct song_node * insert_front(struct song_node * link, char * new_name, char * artist);
 struct song_node * free_list(struct song_node * front);
 struct song_node * insert_order(struct song_node * front, char * new_name, char * artist);
 struct song_node * find(char * title, char * artist);
