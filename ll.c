@@ -7,10 +7,10 @@
 void print_list(struct song_node * link)
 {
   while (link) //while the pointer points somewhere
-  {
-    printf("%s by %s\n", link->name, link->artist); //print it + arrow
-    link = link->next; //go to the next val
-  }
+    {
+      printf("%s by %s\n", link->name, link->artist); //print it + arrow
+      link = link->next; //go to the next val
+    }
 }
 struct song_node * insert_front(struct song_node * link, char * new_name, char * artist)
 {
@@ -39,6 +39,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
   struct song_node* next = head;
   int firstRun = 1; //keeps track of which run this is for front assignment
 
+  //sort by artist
   while (next != NULL && strcmp(artist, curr->next->artist) > 0){
     if (firstRun){
       prev = next;
@@ -54,30 +55,14 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
     }
   }
 
-    return front;
-  }
-  
-  
-  /*
-  while (insertPoint != NULL){
-    if (strcmp(artist, insertPoint->artist) <= 0){
-      if (strcmp(new_name, insertPoint->name) <= 0){
-        insertPoint = insert_front(insertPoint, new_name, artist);
-        break;
-      }
-    }
-    pointBefore = insertPoint;
-    insertPoint = insertPoint->next;
-  }
-  if (insertPoint == NULL){
-    insertPoint = insert_front(insertPoint, new_name, artist);
-    pointBefore->next = insertPoint
-  }
-  else if (pointBefore){
-    pointBefore->next = insertPoint;
+  //sort song title
+  while (next != NULL && strcmp(artist, curr->next->artist) == 0 && strcmp(new_name, curr->next->name) > 0) {
+    prev->next = next;
+    curr->next = next->next;
+    next->next = curr;
   }
   return front;
-  */
+}
 
 
 struct song_node * find(char * title, char * artist)
@@ -98,12 +83,4 @@ struct song_node * by_artist(char * artist)
 struct song_node * remove_song(char * title, char * artist)
 {
   return NULL;
-}
-
-int main(){
-  struct song_node *head = (struct song_node*)malloc(sizeof(struct song_node)); //allocates memory
-  struct song_node song = {"Bohemian Rhapsody", "Queen", NULL};
-  head = &song;
-  print_list(head);
-  return 0;
 }
