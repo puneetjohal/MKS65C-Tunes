@@ -5,7 +5,7 @@ int main(){
   printf("LINKED LIST TESTS\n");
   printf("====================================\n");
   struct song_node *head = (struct song_node*)malloc(sizeof(struct song_node)); //allocates memory
-  struct song_node song = {NULL};
+  struct song_node song;
   head = &song;
   printf("\nTesting insert_front and print_list...\n");
   head = insert_front(head, "Bohemian Rhapsody", "Queen");
