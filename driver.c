@@ -25,8 +25,10 @@ int main(){
   temp = by_artist(head, "Queen");
   printf("%s by %s\n", temp->name, temp->artist);
 
-  printf("\nFinding random song...\n");
+  printf("\nFinding 3 random songs...\n");
   temp = random_song(head);
+  printf("%s by %s\n", temp->name, temp->artist);
+  printf("%s by %s\n", temp->name, temp->artist);
   printf("%s by %s\n", temp->name, temp->artist);
 
   printf("\nRemoving The Photograph by Ghost Quartet...\n");
