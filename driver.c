@@ -10,10 +10,13 @@ int main(){
   head = insert_order(head, "Space Oddidity", "David Bowie");
   head = insert_order(head, "The Photograph", "Ghost Quartet");
   head = insert_order(head, "Another One Bites the Dust", "Queen");
-  printf("Testing insert_order...\n");
+  printf("\nTesting insert_order...\n");
   print_list(head);
-  printf("Finding Space Oddidity...\n");
-  struct song_node * temp = find(head,"Space Oddidity", "David Bowie");
+  printf("\nFinding Space Oddidity...\n");
+  struct song_node * temp = find(head, "Space Oddidity", "David Bowie");
+  printf("%s by %s\n", temp->name, temp->artist);
+  printf("\nFinding first song by Queen...\n");
+  temp = by_artist(head, "Queen");
   printf("%s by %s\n", temp->name, temp->artist);
   return 0;
 }

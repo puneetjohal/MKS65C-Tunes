@@ -100,9 +100,13 @@ struct song_node * random_song()
   return NULL;
 }
 
-struct song_node * by_artist(char * artist)
+struct song_node * by_artist(struct song_node * head, char * artist)
 {
-  return NULL;
+  struct song_node * curr = head;
+  while (curr != NULL && strcmp(artist, curr->artist) !=0){
+    curr = curr->next;
+  }
+  return curr;
 }
 
 struct song_node * remove_song(char * title, char * artist)
