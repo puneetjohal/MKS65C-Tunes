@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "ll.h"
 
 
@@ -97,7 +98,18 @@ struct song_node * find(struct song_node * head, char * title, char * artist)
 
 struct song_node * random_song(struct song_node * head)
 {
-  return NULL;
+  srand( time(NULL) );
+  struct song_node * curr = head;
+  int i;
+  for (i = 0; i < rand(); i++){
+    if (curr->next != NULL){
+      curr = curr->next;
+    }
+    else{
+      curr = head;
+    }
+  }
+  return curr;
 }
 
 struct song_node * by_artist(struct song_node * head, char * artist)

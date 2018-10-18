@@ -26,6 +26,8 @@ int main(){
   printf("%s by %s\n", temp->name, temp->artist);
 
   printf("\nFinding random song...\n");
+  temp = random_song(head);
+  printf("%s by %s\n", temp->name, temp->artist);
 
   printf("\nRemoving The Photograph by Ghost Quartet...\n");
   head = remove_song(head, "The Photograph", "Ghost Quartet");
