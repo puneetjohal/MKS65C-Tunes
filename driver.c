@@ -5,14 +5,12 @@ int main(){
   printf("LINKED LIST TESTS\n");
   printf("====================================\n");
   struct song_node *head = (struct song_node*)malloc(sizeof(struct song_node)); //allocates memory
-  //struct song_node song = ;
-  //head = &song;
-  head = NULL;
+  struct song_node song = {"Bohemian Rhapsody", "Queen", NULL};
+  head = &song;
   printf("\nTesting insert_front and print_list...\n");
-  head = insert_front(head, "Bohemian Rhapsody", "Queen");
+  head = insert_front(head, "Space Oddidity", "David Bowie");
   print_list(head);
 
-  head = insert_order(head, "Space Oddidity", "David Bowie");
   head = insert_order(head, "The Photograph", "Ghost Quartet");
   head = insert_order(head, "Another One Bites the Dust", "Queen");
   head = insert_order(head, "Heart-Shaped Box", "Nirvana");
