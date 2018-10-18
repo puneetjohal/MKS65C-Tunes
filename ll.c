@@ -9,7 +9,7 @@ void print_list(struct song_node * link)
 {
   while (link) //while the pointer points somewhere
     {
-      printf("%s by %s\n", link->name, link->artist); //print it + arrow
+      printf("%s by %s\n", link->name, link->artist);
       link = link->next; //go to the next val
     }
 }

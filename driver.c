@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "ll.c"
+#include "tunes.c"
+
 //test
 int main(){
   printf("LINKED LIST TESTS\n");
@@ -36,5 +37,8 @@ int main(){
   printf("MUSIC LIBRARY TESTS\n");
   printf("====================================\n");
 
+  struct song_node * table[27];
+  add_node(table, "Froot", "Marina and the Diamonds");
+  print_all(table);
   return 0;
 }
