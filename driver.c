@@ -8,7 +8,7 @@ int main(){
   print_list(head);
   head = insert_order(head, "Space Oddidity", "David Bowie");
   head = insert_order(head, "The Photograph", "Ghost Quartet");
-  head = insert_order(head, "Paranoid Android", "Radiohead");
+  head = insert_order(head, "Another One Bites the Dust", "Queen");
   print_list(head);
   return 0;
 }
