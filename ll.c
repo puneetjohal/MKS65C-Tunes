@@ -56,7 +56,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
   }
 
   //sort song title
-  while (next != NULL && strcmp(artist, curr->next->artist) == 0 && strcmp(new_name, curr->next->name) > 0) {
+  while (next != NULL && (strcmp(artist, next->artist) == 0) && strcmp(new_name, next->name) > 0) {
     prev->next = next;
     curr->next = next->next;
     next->next = curr;
