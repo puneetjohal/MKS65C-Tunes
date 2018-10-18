@@ -62,7 +62,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
       next = curr->next;
     }
   }
-
+  /*
   //sort by song title
   while (next != NULL && strcmp(artist, next->artist) == 0 && strcmp(new_name, next->name) > 0) {
     if (firstRun){
@@ -80,7 +80,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
       prev = next;
       next = curr->next;
     }
-  }
+  }*/
 
   return front;
 }
