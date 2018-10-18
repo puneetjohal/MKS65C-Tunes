@@ -1,10 +1,10 @@
-all: main.o ll.o tunes.o
-	gcc -g main.o
+all: driver.o ll.o tunes.o
+	gcc driver.o
 run:
-	gdb a.out
-main.o: main.c
-	gcc -g main.c
+	./a.out
+driver.o: driver.c
+	gcc -c driver.c
 ll.o: ll.c ll.h
-	gcc -g ll.c
+	gcc -c ll.c
 tunes.o: tunes.c tunes.h
-	gcc -g tunes.c
+	gcc -c tunes.c
