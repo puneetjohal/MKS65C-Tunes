@@ -42,7 +42,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
   int firstRun = 1; //keeps track of which run this is for front assignment
 
   //sort by artist
-  while (next != NULL && strcmp(artist, next->artist) > 0){
+  while (next != NULL && strcmp(artist, next->artist) >= 0){
     if (firstRun){
       prev = next;
       curr->next = prev->next;
