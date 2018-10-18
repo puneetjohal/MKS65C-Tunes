@@ -111,8 +111,11 @@ struct song_node * by_artist(struct song_node * head, char * artist)
 
 struct song_node * remove_song(struct song_node * head, char * title, char * artist)
 {
-  struct song_node * curr = head;
-  struct song_node * prev = NULL;
+  if (strcmp(artist, head->artist) == 0 && strcmp(title, head->name) == 0){
+    return head->next;
+  } //takes care of case where you are removing the first node
+  struct song_node * curr = head->next;
+  struct song_node * prev = head;
   struct song_node * next = curr->next;
   while (curr != NULL && strcmp(artist, curr->artist) != 0 && strcmp(title, curr->name) != 0){
     prev = prev->next;
