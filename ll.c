@@ -95,7 +95,7 @@ struct song_node * find(struct song_node * head, char * title, char * artist)
   return curr;
 }
 
-struct song_node * random_song()
+struct song_node * random_song(struct song_node * head)
 {
   return NULL;
 }
@@ -109,7 +109,20 @@ struct song_node * by_artist(struct song_node * head, char * artist)
   return curr;
 }
 
-struct song_node * remove_song(char * title, char * artist)
+struct song_node * remove_song(struct song_node * head, char * title, char * artist)
 {
-  return NULL;
+  struct song_node * curr = head;
+  struct song_node * prev = NULL;
+  struct song_node * next = curr->next;
+  while (curr != NULL && strcmp(artist, curr->artist) != 0 && strcmp(title, curr->name) != 0){
+    prev = prev->next;
+    curr = curr->next;
+    if (next != NULL){
+      next = next->next;
+    }
+  }
+  if (curr != NULL){
+    prev->next = next;
+  }
+  return head;
 }
