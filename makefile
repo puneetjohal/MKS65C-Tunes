@@ -1,5 +1,5 @@
 all: main.o ll.o tunes.o
-	gcc main.o
+	gcc -g main.o
 run:
 	gdb a.out
 main.o: main.c
