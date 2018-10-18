@@ -86,9 +86,13 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
 }
 
 
-struct song_node * find(char * title, char * artist)
+struct song_node * find(struct song_node * head, char * title, char * artist)
 {
-  return NULL;
+  struct song_node * curr = head;
+  while (curr != NULL && strcmp(artist, curr->artist) != 0 && strcmp(title, curr->name) != 0){
+    curr = curr->next;
+  }
+  return curr;
 }
 
 struct song_node * random_song()
