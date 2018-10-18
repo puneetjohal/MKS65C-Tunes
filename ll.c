@@ -48,6 +48,7 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
       curr->next = prev->next;
       prev->next = curr;
       front = prev; //in the case the newly added node is not the new front
+      next = curr->next;
       firstRun = 0; //not first run anymore
     }
     else {
