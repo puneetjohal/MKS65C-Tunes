@@ -33,5 +33,8 @@ int main(){
   head = remove_song(head, "The Photograph", "Ghost Quartet");
   print_list(head);
 
+  printf("MUSIC LIBRARY TESTS\n");
+  printf("====================================\n");
+
   return 0;
 }
