@@ -12,6 +12,7 @@ void print_list(struct song_node * link)
       link = link->next; //go to the next val
     }
 }
+
 struct song_node * insert_front(struct song_node * link, char * new_name, char * artist)
 {
   struct song_node * ptr = malloc(sizeof(struct song_node));
@@ -21,6 +22,7 @@ struct song_node * insert_front(struct song_node * link, char * new_name, char *
   ptr->next = link; //put the pointer to the next node in its place
   return ptr; //return new front
 }
+
 struct song_node * free_list(struct song_node * front)
 {
   if (front->next) //if this isn't the last node
@@ -52,6 +54,8 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
       prev->next = next;
       curr->next = next->next;
       next->next = curr;
+      prev = next;
+      next = curr->next;
     }
   }
 
