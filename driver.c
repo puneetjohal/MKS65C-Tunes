@@ -49,6 +49,11 @@ int main(){
   add_node(table, "Havana", "Camila Cabello");
   add_node(table, "Immortal", "Marina and the Diamonds");
   add_node(table, "Blue", "Marina and the Diamonds");
+  add_node(table, "Dear No One", "Tori Kelly");
+  add_node(table, "Neon", "John Mayer");
+  add_node(table, "Bloom - Bonus Track", "The Paper Kites");
+  add_node(table, "Rendez Vous", "Defunk");
+  add_node(table, "California Dreamin\'", "The Mamas & The Papas");
   print_all(table);
   printf("shuffling...\n");
   shuffle(table);
