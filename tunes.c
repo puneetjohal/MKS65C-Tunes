@@ -93,21 +93,23 @@ void shuffle(struct song_node * table[27]){
 
 void deleter(struct song_node * table[27], char * title, char * artist)
 {
+  int x;
   struct song_node * head;
   char c = artist[0];
   if (c >= 'a' && c <= 'z')
-    head = table[artist[0] - 'a'];
+    x = artist[0] - 'a';
   else if (c >= 'A' && c <= 'Z')
-    head = table[artist[0] - 'A'];
+    x = artist[0] - 'A';
   else
-    head = table[26];
-  table[c] = remove_song(head, title, artist);
+    x = 26;
+  head = table[x];
+  table[x] = remove_song(head, title, artist);
 }
 
 void clear(struct song_node * table[27]){
   int i;
   for (i = 0; i < 27; i++)
   {
-    free_list(table[i]);
+    table[i] = free_list(table[i]);
   }
 }

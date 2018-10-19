@@ -57,11 +57,14 @@ int main(){
   print_all(table);
   printf("\nAll songs by M&theD:\n");
   print_artist(table, "Marina and the Diamonds");
-  //clear(table);
   printf("shuffling...\n");
   shuffle(table);
   printf("deleting California Dreamin\n");
   deleter(table, "California Dreamin\'", "The Mamas & The Papas");
+  //printf("deleting Immortal\n");
+  //deleter(table, "Immortal", "Marina and the Diamonds");
   print_all(table);
+  printf("clearing table");
+  clear(table);
   return 0;
 }
