@@ -50,5 +50,7 @@ int main(){
   add_node(table, "Immortal", "Marina and the Diamonds");
   add_node(table, "Blue", "Marina and the Diamonds");
   print_all(table);
+  printf("shuffling...\n");
+  shuffle(table);
   return 0;
 }

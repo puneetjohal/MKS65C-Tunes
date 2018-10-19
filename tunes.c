@@ -2,6 +2,8 @@
 #include <string.h>
 #include "ll.c"
 #include "tunes.h"
+#include <time.h>
+#include <stdlib.h>
 
 struct song_node * add_node(struct song_node * table[27], char * title, char * artist)
 {
@@ -73,8 +75,18 @@ void print_all(struct song_node * table[27]){
   }
 }
 
-void shuffle(){
-
+void shuffle(struct song_node * table[27]){
+  srand( time(NULL) );
+  struct song_node * curr;
+  int i = 0;
+  while (i++ < 100){
+    int letter = rand() % 27;
+    if (table[letter])
+    {
+      curr = random_song(table[letter]);
+      printf("%s by %s\n", curr->name, curr->artist);
+    }
+  }
 }
 
 void deleter(){
