@@ -79,8 +79,9 @@ void shuffle(struct song_node * table[27]){
   srand( time(NULL) );
   struct song_node * curr;
   int i = 0;
+  int letter;
   while (i < 10){
-    int letter = rand() % 27;
+    letter = rand() % 27;
     if (table[letter])
     {
       curr = random_song(table[letter]);
@@ -92,8 +93,15 @@ void shuffle(struct song_node * table[27]){
 
 void deleter(struct song_node * table[27], char * title, char * artist)
 {
-  struct song_node * head = find_song(table, title, artist);
-  remove_song(head, title, artist);
+  struct song_node * head;
+  char c = artist[0];
+  if (c >= 'a' && c <= 'z')
+    head = table[artist[0] - 'a'];
+  else if (c >= 'A' && c <= 'Z')
+    head = table[artist[0] - 'A'];
+  else
+    head = table[26];
+  table[c] = remove_song(head, title, artist);
 }
 
 void clear(struct song_node * table[27]){

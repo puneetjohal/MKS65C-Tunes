@@ -60,5 +60,8 @@ int main(){
   //clear(table);
   printf("shuffling...\n");
   shuffle(table);
+  printf("deleting California Dreamin\n");
+  deleter(table, "California Dreamin\'", "The Mamas & The Papas");
+  print_all(table);
   return 0;
 }
