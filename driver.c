@@ -55,8 +55,10 @@ int main(){
   add_node(table, "Rendez Vous", "Defunk");
   add_node(table, "California Dreamin\'", "The Mamas & The Papas");
   print_all(table);
+  printf("\nAll songs by M&theD:\n");
+  print_artist(table, "Marina and the Diamonds");
+  //clear(table);
   printf("shuffling...\n");
   shuffle(table);
-  clear(table);
   return 0;
 }

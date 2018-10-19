@@ -56,9 +56,9 @@ void print_letter(struct song_node * table[27], char c){
 
 void print_artist(struct song_node * table[27], char * name){
   struct song_node * curr = find_by_artist(table, name);
-  while (! strcmp(curr->artist, name))
+  while (curr && ! strcmp(curr->artist, name))
   {
-    printf("%s by %s", curr->name, curr->artist);
+    printf("%s by %s\n", curr->name, curr->artist);
     curr = curr->next;
   }
 }

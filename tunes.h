@@ -13,6 +13,6 @@ void print_letter(struct song_node * table[27], char c);
 void print_artist(struct song_node * table[27], char * name);
 void print_all(struct song_node * table[27]);
 void shuffle(struct song_node * table[27]);
-void deleter();
-void clear();
+void deleter(struct song_node * table[27], char * title, char * artist);
+void clear(struct song_node * table[27]);
 #endif
