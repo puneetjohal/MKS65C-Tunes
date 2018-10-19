@@ -79,7 +79,7 @@ void shuffle(struct song_node * table[27]){
   srand( time(NULL) );
   struct song_node * curr;
   int i = 0;
-  while (i++ < 100){
+  while (i++ < 10){
     int letter = rand() % 27;
     printf("%d\n", letter);
     if (table[letter])
