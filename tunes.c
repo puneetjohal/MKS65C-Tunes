@@ -21,40 +21,40 @@ struct song_node * add_node(struct song_node * table[27], char * title, char * a
   return table[pos];
 }
 
-struct song_node * find_song(struct song_node * table, char * title, char * artist){
+struct song_node * find_song(struct song_node * table[27], char * title, char * artist){
   struct song_node * head;
   char c = artist[0];
   if (c >= 'a' && c <= 'z')
-    head = &table[artist[0] - 'a'];
+    head = table[artist[0] - 'a'];
   else if (c >= 'A' && c <= 'Z')
-    head = &table[artist[0] - 'A'];
+    head = table[artist[0] - 'A'];
   else
-    head = &table[26];
+    head = table[26];
   return find(head,title,artist);
 }
 
-struct song_node * find_by_artist(struct song_node * table, char * artist){
+struct song_node * find_by_artist(struct song_node * table[27], char * artist){
   struct song_node * head;
   char c = artist[0];
   if (c >= 'a' && c <= 'z')
-    head = &table[artist[0] - 'a'];
+    head = table[artist[0] - 'a'];
   else if (c >= 'A' && c <= 'Z')
-    head = &table[artist[0] - 'A'];
+    head = table[artist[0] - 'A'];
   else
-    head = &table[26];
+    head = table[26];
   return by_artist(head,artist);
 }
 
-void print_letter(struct song_node * table, char c){
+void print_letter(struct song_node * table[27], char c){
   if (c >= 'a' && c <= 'z')
-    print_list(&(table[c - 'a']));
+    print_list(table[c - 'a']);
   else if (c >= 'A' && c <= 'Z')
-    print_list(&(table[c - 'A']));
+    print_list(table[c - 'A']);
   else
-    print_list(&(table[26]));
+    print_list(table[26]);
 }
 
-void print_artist(struct song_node * table, char * name){
+void print_artist(struct song_node * table[27], char * name){
   struct song_node * curr = find_by_artist(table, name);
   while (! strcmp(curr->artist, name))
   {
@@ -81,6 +81,7 @@ void shuffle(struct song_node * table[27]){
   int i = 0;
   while (i++ < 100){
     int letter = rand() % 27;
+    printf("%d\n", letter);
     if (table[letter])
     {
       curr = random_song(table[letter]);
@@ -89,10 +90,16 @@ void shuffle(struct song_node * table[27]){
   }
 }
 
-void deleter(){
-
+void deleter(struct song_node * table[27], char * title, char * artist)
+{
+  struct song_node * head = find_song(table, title, artist);
+  remove_song(head, title, artist);
 }
 
-void clear(){
-
+void clear(struct song_node * table[27]){
+  int i;
+  for (i = 0; i < 27; i++)
+  {
+    free_list(table[i]);
+  }
 }

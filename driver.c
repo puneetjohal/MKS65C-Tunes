@@ -52,5 +52,6 @@ int main(){
   print_all(table);
   printf("shuffling...\n");
   shuffle(table);
+  clear(table);
   return 0;
 }
