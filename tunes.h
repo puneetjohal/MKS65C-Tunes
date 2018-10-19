@@ -6,7 +6,7 @@
 #include "ll.c"
 #include "ll.h"
 
-struct song_node * add_node(struct song_node * table, char * title, char * artist);
+struct song_node * add_node(struct song_node * table[27], char * title, char * artist);
 struct song_node * find_song(struct song_node * table, char * title, char * artist);
 struct song_node * find_by_artist(struct song_node * table, char * artist);
 void print_letter(struct song_node * table, char c);

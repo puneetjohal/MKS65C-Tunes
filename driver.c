@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "tunes.c"
 
 //test
@@ -37,13 +38,17 @@ int main(){
 
   printf("\n\nMUSIC LIBRARY TESTS\n");
   printf("====================================\n");
-
-  struct song_node * ptr = malloc(sizeof(struct song_node));
-
+  int i;
   struct song_node * table[27];
-  printf("here\n");
-  table[12] = add_node(NULL, "Froot", "Marina and the Diamonds");
-  printf("there\n");
-  print_all(&table);
+  for (i = 0; i < 27; i++)
+  {
+    table[i] = NULL;
+  }
+  add_node(table, "Froot", "Marina and the Diamonds");
+  add_node(table, "Hot Knife", "Fiona Apple");
+  add_node(table, "Havana", "Camila Cabello");
+  add_node(table, "Immortal", "Marina and the Diamonds");
+  add_node(table, "Blue", "Marina and the Diamonds");
+  print_all(table);
   return 0;
 }

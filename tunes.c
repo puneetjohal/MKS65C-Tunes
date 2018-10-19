@@ -1,18 +1,22 @@
 #include <stdio.h>
+#include <string.h>
 #include "ll.c"
 #include "tunes.h"
 
-struct song_node * add_node(struct song_node * table, char * title, char * artist)
+struct song_node * add_node(struct song_node * table[27], char * title, char * artist)
 {
   char c = artist[0];
+  int pos;
   struct song_node * head;
   if (c >= 'a' && c <= 'z')
-    head = &table[artist[0] - 'a'];
+    pos = artist[0] - 'a';
   else if (c >= 'A' && c <= 'Z')
-    head = &table[artist[0] - 'A'];
+    pos = artist[0] - 'A';
   else
-    head = &table[26];
-  return insert_order(head,title,artist);
+    pos = 26;
+  head = table[pos];
+  table[pos] = insert_order(head, title, artist);
+  return table[pos];
 }
 
 struct song_node * find_song(struct song_node * table, char * title, char * artist){
@@ -51,18 +55,22 @@ void print_letter(struct song_node * table, char c){
 void print_artist(struct song_node * table, char * name){
   struct song_node * curr = find_by_artist(table, name);
   while (! strcmp(curr->artist, name))
-    {
-      printf("%s by %s", curr->name, curr->artist);
-      curr = curr->next;
-    }
+  {
+    printf("%s by %s", curr->name, curr->artist);
+    curr = curr->next;
+  }
 }
 
 void print_all(struct song_node * table[27]){
   int i;
-  for (i = 0; i <= 26 + 1; i++)
+  for (i = 0; i <= 26; i++)
+  {
+    if (table[i])
     {
+      printf("%c\n", 'A' + i);
       print_list(table[i]);
     }
+  }
 }
 
 void shuffle(){
