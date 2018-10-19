@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifndef LL
+#define LL
+
 struct song_node{
   char name[100];
   char artist[100];
@@ -16,3 +19,5 @@ struct song_node * find(struct song_node * head, char * title, char * artist);
 struct song_node * random_song(struct song_node * head);
 struct song_node * by_artist(struct song_node * head, char * artist);
 struct song_node * remove_song(struct song_node * head, char * title, char * artist);
+
+#endif

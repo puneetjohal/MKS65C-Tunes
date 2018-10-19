@@ -4,6 +4,8 @@
 #include <time.h>
 #include "ll.h"
 
+#ifndef LL_FXN
+#define LL_FXN
 
 void print_list(struct song_node * link)
 {
@@ -52,9 +54,6 @@ struct song_node * insert_order(struct song_node * head, char * new_name, char *
       next = curr->next;
       firstRun = 0; //not first run anymore
     }
-    /*else if (strcmp(artist, next->artist) == 0 && strcmp(new_name, next->name) < 0) {
-      break;
-    }*/
     else {
       prev->next = next;
       curr->next = next->next;
@@ -141,3 +140,4 @@ struct song_node * remove_song(struct song_node * head, char * title, char * art
   }
   return head;
 }
+#endif

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdio.h>
 #include "tunes.c"
 
 //test
@@ -34,11 +35,15 @@ int main(){
   head = remove_song(head, "The Photograph", "Ghost Quartet");
   print_list(head);
 
-  printf("MUSIC LIBRARY TESTS\n");
+  printf("\n\nMUSIC LIBRARY TESTS\n");
   printf("====================================\n");
 
+  struct song_node * ptr = malloc(sizeof(struct song_node));
+
   struct song_node * table[27];
-  add_node(table, "Froot", "Marina and the Diamonds");
-  print_all(table);
+  printf("here\n");
+  table[12] = add_node(NULL, "Froot", "Marina and the Diamonds");
+  printf("there\n");
+  print_all(&table);
   return 0;
 }
